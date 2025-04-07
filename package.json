@@ -1,0 +1,26 @@
+{
+  "name": "jk-playlist",
+  "version": "1.0.0",
+  "description": "An Electron desktop app that connects to Spotify and syncs across devices",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jazlynho2028/jk-playlist.git"
+  },
+  "author": "Jazlyn Ho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jazlynho2028/jk-playlist/issues"
+  },
+  "homepage": "https://github.com/jazlynho2028/jk-playlist#readme",
+  "devDependencies": {
+    "electron": "^35.1.4",
+    "globals": "^16.0.0",
+    "prettier": "^3.5.3"
+  }
+}
