@@ -1,10 +1,16 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 
+const aspectRatio = 65 / 93;
+
 const createWindow = () => {
+  const ratio = global.devicePixelRatio || 1;
+  const width = 650*ratio;
+  const height = 930*ratio;
+
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: width,
+    height: height,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
@@ -15,7 +21,16 @@ const createWindow = () => {
     },
   });
   win.loadFile('renderer/index.html');
+
+  win.on('resize', () => maintainAspectRatio(win));
 };
+
+// maintain aspect ratio when resizing
+function maintainAspectRatio(window) {
+  const [width] = window.getSize();
+  const height = Math.round(width/aspectRatio);
+  window.setSize(width, height);
+}
 
 app.whenReady().then(() => {
   ipcMain.handle('ping', () => 'pong');
