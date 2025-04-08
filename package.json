@@ -9,7 +9,7 @@
     "format": "prettier --write ."
   },
   "repository": {
-    "type": "git",
+    "type": "module",
     "url": "git+https://github.com/jazlynho2028/jk-playlist.git"
   },
   "author": "Jazlyn Ho",

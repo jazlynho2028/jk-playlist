@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+            default-src 'self'; 
+            script-src 'self' https://cdnjs.cloudflare.com; 
+            connect-src 'self' https://api.spotify.com;
+            img-src 'self' https://i.scdn.co; 
+            font-src 'self' https://fonts.gstatic.com;
+            "
+    />
+    <title>Hello, this is a cute playlist!</title>
+  </head>
+  <body>
+    <div class="player-container">
+      <h1>JK Playlist</h1>
+      
+      <div class="track-info">
+        <h2 id="song-title">No song selected</h2>
+        <p id="artist-name"></p>
+      </div>
+      
+      <div class="progress-container">
+        <span id="current-time">00:00</span>
+        <input type="range" id="progress-bar" min="0" max="100" value="0">
+        <span id="duration">00:00</span>
+      </div>
+      
+      <div class="controls">
+        <button id="prev-btn">Previous</button>
+        <button id="play-btn">Play</button>
+        <button id="next-btn">Next</button>
+      </div>
+    </div>
+  
+    <audio id="audio-player"></audio>
+    
+    <script type="module" src="renderer.js"></script>
+  </body>
+</html>
