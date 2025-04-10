@@ -2,16 +2,19 @@ export default [
     {
         title: 'Cry Baby', 
         artist: 'Official Hige Dandism', 
-        path: '../assets/Cry Baby - OFFICIAL HIGE DANDISM.mp3'
+        audioPath: '../assets/Cry Baby - OFFICIAL HIGE DANDISM.mp3',
+        coverPath: '../assets/icons/coverart/Cry Baby.png',
     },
     {
         title: 'The Baron',
         artist: 'Yuji Nomi',
-        path: '../assets/The Baron - Yuji Nomi.mp3'
+        audioPath: '../assets/The Baron - Yuji Nomi.mp3',
+        coverPath: '../assets/icons/coverart/The Baron.png',
     },
     {
         title: '絶頂讃歌',
         artist: '和ぬか',
-        path: '../assets/絶頂讃歌 - 和ぬか.mp3'
+        audioPath: '../assets/絶頂讃歌 - 和ぬか.mp3',
+        coverPath: '../assets/icons/coverart/絶頂讃歌.png',
     }
 ];

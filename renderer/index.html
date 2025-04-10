@@ -18,22 +18,39 @@
   </head>
   <body>
     <div class="container-background">
-      <div class="container-content">
-        <div class="track-info">
-          <h2 id="song-title">No song selected</h2>
-          <h3 id="artist-name"></h3>
+      <div class="content-container">
+        <div class="album-cover-frame">
+          <img id="cover-art"></img>
         </div>
-        
+        <div class="song-info-container">
+          <div class="upper-song-info-container">
+            <button>
+              <img src="../assets/icons/heart.png" alt="Prev">
+            </button>
+            <h2 id="song-title">No song selected</h2>
+            <button>
+              <img src="../assets/icons/heart.png" alt="Prev">
+            </button>
+          </div>
+          <h3 id="artist-name"></h3> 
+        </div>
         <div class="progress-container">
-          <h3 id="current-time">00:00</h3>
-          <input type="range" id="progress-bar" min="0" max="100" value="0">
-          <h3 id="duration">00:00</h3>
+          <input type="range" id="progress-bar" class="custom-range" min="0" max="100" value="0">
+          <div class="time-container">
+            <h3 id="current-time">00:00</h3>
+            <h3 id="duration">00:00</h3>
+          </div>
         </div>
-        
         <div class="controls">
-          <button id="prev-btn">Previous</button>
-          <button id="play-btn">Play</button>
-          <button id="next-btn">Next</button>
+          <button id="prev-btn">
+            <img src="../assets/icons/next.png" alt="Prev">
+          </button>
+          <button id="play-btn">
+            <img src="../assets/icons/play-circle.png" alt="Play">
+          </button>
+          <button id="next-btn">
+            <img src="../assets/icons/next.png" alt="Next">
+          </button>
         </div>
       </div>
     </div>

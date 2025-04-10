@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const durationEl = document.getElementById('duration');
   const songTitleEl = document.getElementById('song-title');
   const artistNameEl = document.getElementById('artist-name');
+  const coverArtEl = document.getElementById('cover-art')
+
+  const playImg = playBtn.querySelector('img');
 
   let currentTrackIndex = 1;
   let isPlaying = false;
@@ -17,48 +20,60 @@ document.addEventListener('DOMContentLoaded', () => {
   // Load track
   function loadTrack(index) {
     const track = playlist[index];
-    audioPlayer.src = track.path;
+    audioPlayer.src = track.audioPath;
     songTitleEl.textContent = track.title;
     artistNameEl.textContent = track.artist;
+    coverArtEl.src = track.coverPath;
     
     audioPlayer.addEventListener('loadedmetadata', () => {
       durationEl.textContent = formatTime(audioPlayer.duration);
     });
-    
-    if (isPlaying) {
-      audioPlayer.play();
-      playBtn.textContent = 'Pause';
-    }
   }
+
+  // Event listeners
+  playBtn.addEventListener('click', playPause);
+  prevBtn.addEventListener('click', prevTrack);
+  nextBtn.addEventListener('click', nextTrack);
+  audioPlayer.addEventListener('timeupdate', updateProgress);
+  audioPlayer.addEventListener('ended', nextTrack);
+  progressBar.addEventListener('click', setProgress);
 
   // Play/Pause toggle
-  function togglePlay() {
+  function playPause() {
     if (isPlaying) {
+      isPlaying = false;
       audioPlayer.pause();
-      playBtn.textContent = 'Play';
+      playImg.src = '../assets/icons/play-circle.png';
     } else {
+      isPlaying = true;
       audioPlayer.play();
-      playBtn.textContent = 'Pause';
+      playImg.src = '../assets/icons/pause.png';
     }
-    isPlaying = !isPlaying;
   }
 
+
+  
   // Previous track
   function prevTrack() {
+    isPlaying = !isPlaying;
     currentTrackIndex--;
     if (currentTrackIndex < 0) {
       currentTrackIndex = playlist.length - 1;
     }
     loadTrack(currentTrackIndex);
+    playPause();
   }
+
 
   // Next track
   function nextTrack() {
+    isPlaying = !isPlaying;
     currentTrackIndex++;
     if (currentTrackIndex >= playlist.length) {
       currentTrackIndex = 0;
     }
     loadTrack(currentTrackIndex);
+    playPause();
   }
 
   // Update progress bar
@@ -83,14 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function formatLeading0(num) {
     return `${num < 10 ? '0' : ''}${num}`;
   }
-
-  // Event listeners
-  playBtn.addEventListener('click', togglePlay);
-  prevBtn.addEventListener('click', prevTrack);
-  nextBtn.addEventListener('click', nextTrack);
-  audioPlayer.addEventListener('timeupdate', updateProgress);
-  audioPlayer.addEventListener('ended', nextTrack);
-  progressBar.addEventListener('click', setProgress);
 
   // Load first track
   loadTrack(currentTrackIndex);
