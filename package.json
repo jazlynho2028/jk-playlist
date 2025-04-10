@@ -20,7 +20,12 @@
   "homepage": "https://github.com/jazlynho2028/jk-playlist#readme",
   "devDependencies": {
     "electron": "^35.1.4",
+    "electron-rebuild": "^3.2.9",
     "globals": "^16.0.0",
     "prettier": "^3.5.3"
+  },
+  "dependencies": {
+    "get-image-colors": "^4.0.1",
+    "sharp": "^0.34.1"
   }
 }

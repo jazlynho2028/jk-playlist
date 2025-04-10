@@ -50,8 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
       playImg.src = '../assets/icons/pause.png';
     }
   }
-
-
   
   // Previous track
   function prevTrack() {
@@ -63,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadTrack(currentTrackIndex);
     playPause();
   }
-
 
   // Next track
   function nextTrack() {

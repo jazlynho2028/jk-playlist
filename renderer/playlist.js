@@ -9,7 +9,7 @@ export default [
         title: 'The Baron',
         artist: 'Yuji Nomi',
         audioPath: '../assets/The Baron - Yuji Nomi.mp3',
-        coverPath: '../assets/icons/coverart/The Baron.png',
+        coverPath: '/Users/JazlynHo/Desktop/jk-playlist/assets/icons/coverart/The Baron.png',
     },
     {
         title: '絶頂讃歌',

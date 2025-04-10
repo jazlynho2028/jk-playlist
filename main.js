@@ -11,10 +11,12 @@ const createWindow = () => {
   const win = new BrowserWindow({
     width: width,
     height: height,
+    transparent: true,
+    frame: false,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
-      sandbox: true,
+      sandbox: false,
       enableRemoteModule: false,
       webSecurity: true,
       preload: path.join(__dirname, 'preload.js'),

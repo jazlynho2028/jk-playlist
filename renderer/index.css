@@ -2,14 +2,13 @@
 
 
 :root {
-    --bg-color: #1c1a30;
+    --bg-color: transparent;
     --white: #FFFFFF;
-    --color-a: #1B213170;
-    --color-b: #41466570;
-    --color-c: #7D576370;
-    --color-d: #C5BBDC70;
-    --color-d-light-shadow: #C5BBDC00;
-    --color-d-dark-shadow: #C5BBDC;
+    --color-1: #1B213170;
+    --color-2: #41466570;
+    --color-3: #7D576370;
+    --color-4: #C5BBDC70;
+    --transparent: #FFFFFF00;
 }
 
 * {
@@ -55,7 +54,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(ellipse at 50% 80%, var(--color-d-light-shadow), var(--color-d-dark-shadow));
+    background: radial-gradient(ellipse at 50% 80%, var(--transparent), var(--white));
     opacity: 0.3; /* Apply opacity only to the background */
     mix-blend-mode: screen;
     z-index: -1; /* Place it behind the content */
@@ -68,10 +67,10 @@ body {
     background-color: none;
     opacity: 1; /* Full opacity for the content */
     mix-blend-mode: normal;
-    padding: 5vw;
+    padding: 7vw;
     display: flex;
     flex-direction: column;
-    gap: 2vw;
+    justify-content: space-between;
     z-index: 0;
 }
 
@@ -79,10 +78,11 @@ body {
     width: 100%;
     aspect-ratio: 1 / 1;
     border-radius: 2vw;
-    box-shadow: 0vw 0vw 3vw var(--color-d-dark-shadow);
+    box-shadow: 0vw 0vw 3vw var(--white);
     mix-blend-mode: lighten;
     overflow: hidden;
     z-index: 0;
+    pointer-events: none;
 }
 
 #cover-art {
@@ -104,11 +104,17 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    overflow: hidden;
+}
+
+.audio-controls-container {
+    gap: 2vw;
 }
 
 .progress-container {
     display: flex;
     flex-direction: column;
+    gap: 2vw;
 }
 
 .custom-range {
@@ -134,6 +140,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .controls {
+    height: 9vw;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -144,12 +151,20 @@ input[type="range"]::-webkit-slider-thumb {
 button {
     all: unset;
     width: 9vw;
+    height: 9vw;
     aspect-ratio: 1 / 1;
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 button img {
     width: 100%;
-    aspect-ratio: 1 / 1;
+    height: 100%;
+    object-fit: contain;
 }
 
 #prev-btn img {

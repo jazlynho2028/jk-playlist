@@ -1,5 +1,6 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
-contextBridge.exposeInMainWorld('electronAPI', {
+contextBridge.exposeInMainWorld('myAPI', {
   onUpdateTime: (callback) => ipcRenderer.on('update-time', callback),
-});
+  }
+);
