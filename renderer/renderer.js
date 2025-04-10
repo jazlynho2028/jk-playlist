@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const { duration, currentTime } = audioPlayer;
     const progressPercent = (currentTime / duration) * 100;
     progressBar.value = progressPercent;
+    progressBar.style.background = `linear-gradient(to right, #FFFFFF ${progressPercent}%, #FFFFFF40 ${progressPercent}%)`;
     currentTimeEl.textContent = formatTime(currentTime);
   }
 
