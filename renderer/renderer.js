@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     songTitleEl.textContent = track.title;
     artistNameEl.textContent = track.artist;
     coverArtEl.src = track.coverPath;
+    document.documentElement.style.setProperty('--album-bg', track.bgColor);
     
     audioPlayer.addEventListener('loadedmetadata', () => {
       durationEl.textContent = formatTime(audioPlayer.duration);
